@@ -3,10 +3,8 @@ package exercise;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.List;
-import java.util.stream.Collectors;
 
 // BEGIN
 @Getter
@@ -29,8 +27,8 @@ public class PairedTag extends Tag {
         var result = new StringBuilder();
         var tagToString = super.toString();
         result.append(tagToString);
-        result.append(tagBody);
-        for (var childTag : childTags) {
+        result.append(this.tagBody);
+        for (var childTag : this.childTags) {
             result.append(childTag.toString());
         }
         result.append(closingTag);

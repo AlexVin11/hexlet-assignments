@@ -1,11 +1,10 @@
 package exercise;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.HashMap;
-import java.util.stream.Collectors;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 // BEGIN
@@ -13,7 +12,7 @@ import java.util.Map;
 @Setter
 public class Tag {
     private String tagName;
-    private Map<String, String> attributes = new HashMap<>();
+    private Map<String, String> attributes = new LinkedHashMap<>();
 
     public Tag(String tagName, Map<String, String> attributes) {
         this.tagName = tagName;

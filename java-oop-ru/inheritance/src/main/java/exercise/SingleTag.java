@@ -16,8 +16,7 @@ public class SingleTag extends Tag {
 
     @Override
     public String toString() {
-        var result = super.toString();
-        return result;
+        return super.toString();
     }
 }
 // END
