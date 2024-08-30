@@ -23,10 +23,12 @@ public final class App {
         // BEGIN
         app.get("/companies/{id}", ctx -> {
             var id = ctx.pathParam("id");
+
             Map<String, String> company = COMPANIES.stream()
-                            .filter(c -> c.get(id).equals(id))
+                    .filter(c -> c.get("id").equals(id))
                     .findFirst()
                     .orElseThrow(() -> new NotFoundResponse("Company not found"));
+
             ctx.json(company);
         });
         // END
