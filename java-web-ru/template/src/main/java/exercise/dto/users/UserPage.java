@@ -2,21 +2,13 @@ package exercise.dto.users;
 
 import exercise.model.User;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 // BEGIN
+@AllArgsConstructor
+@Getter
 public class UserPage {
     private User user;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public UserPage(User user) {
-        this.user = user;
-    }
 }
 // END
