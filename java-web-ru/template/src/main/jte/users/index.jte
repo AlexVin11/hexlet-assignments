@@ -1,5 +1,5 @@
 @import exercise.dto.users.UsersPage
-@param UsersPage pageForUsers
+@param UsersPage page
 
 <html>
 <head>

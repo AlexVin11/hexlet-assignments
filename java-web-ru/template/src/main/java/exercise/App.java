@@ -43,16 +43,6 @@ public final class App {
             ctx.render("users/index.jte", model("page", page));
 
         });
-        /*app.get("/users", ctx -> {
-            var pageForUsers = new UsersPage(USERS);
-            ctx.render("users/index.jte", model("pageForUsers", pageForUsers));
-        });
-        app.get("/users/{id}", ctx -> {
-            var id = ctx.pathParamAsClass("id", Integer.class).get();
-            var user = USERS.get(id);
-            var pageForUser = new UserPage(user);
-            ctx.render("users/show.jte", model("pageForUser",pageForUser));
-        });*/
         // END
 
         app.get("/", ctx -> {
