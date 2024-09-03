@@ -31,20 +31,20 @@ public final class App {
         });
 
         // BEGIN
-        app.get("/articles/build", ctx -> {
+        app.get("articles/build", ctx -> {
             var page = new BuildArticlePage();
             ctx.render("articles/build.jte", model("page", page));
         });
         app.post("/articles", ctx -> {
             try {
-                var validatedTitle = ctx.formParamAsClass("title", String.class)
-                        .check(value -> value.length() >= 2, "Название должно быть длиннее 2 символов")
+                var title = ctx.formParamAsClass("title", String.class)
+                        .check(value -> value.length() >= 2, "Название не должно быть короче двух символов")
                         .check(value -> !ArticleRepository.existsByTitle(value), "Статья с таким названием уже существует")
                         .get();
-                var validatedContent = ctx.formParamAsClass("content", String.class)
-                        .check(value -> value.length() >= 10, "Статья должна быть длиннее 10 символов")
+                var content = ctx.formParamAsClass("content", String.class)
+                        .check(value -> value.length() >= 10, "Статья должна быть не короче 10 символов")
                         .get();
-                var article = new Article(validatedTitle, validatedContent);
+                var article = new Article(title, content);
                 ArticleRepository.save(article);
                 ctx.redirect("/articles");
             } catch (ValidationException e) {
