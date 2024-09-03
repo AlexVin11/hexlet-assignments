@@ -10,16 +10,11 @@ import lombok.Getter;
 
 // BEGIN
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 public class BuildArticlePage {
     private String title;
     private String content;
     private Map<String, List<ValidationError<Object>>> errors;
-
-    public BuildArticlePage (String title, String content, Map<String, List<ValidationError<Object>>> errors) {
-        this.title = title;
-        this.content = content;
-        this.errors = errors;
-    }
 }
 // END

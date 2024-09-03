@@ -1,6 +1,5 @@
-@import gg.jte.Content
-@param Content content
-@param Content footer = null
+@import exercise.dto.articles.BuildArticlePage
+@param BuildArticlePage page
 
 <!doctype html>
 <html lang="en">
@@ -14,6 +13,17 @@
           crossorigin="anonymous">
 </head>
 <body>
+@if(page.getErrors() != null)
+    <div class="mb-3">
+        <ul>
+            @for(var validator : page.getErrors().values())
+                @for(var error : validator)
+                    <li>${error.getMessage()}</li>
+                @endfor
+            @endfor
+        </ul>
+    </div>
+@endif
 <form action="/articles" method="post">
     <fieldset>
         <legend>Поле создания статьи</legend>
