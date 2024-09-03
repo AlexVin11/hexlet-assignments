@@ -38,7 +38,7 @@ public final class App {
         app.post("/articles", ctx -> {
             try {
                 var validatedTitle = ctx.formParamAsClass("title", String.class)
-                        .check(value -> value.length() >= 2, "Название должно быть не короче 2 символов")
+                        .check(value -> value.length() >= 2, "Название должно быть длиннее 2 символов")
                         .check(value -> !ArticleRepository.existsByTitle(value), "Статья с таким названием уже существует")
                         .get();
                 var validatedContent = ctx.formParamAsClass("content", String.class)
