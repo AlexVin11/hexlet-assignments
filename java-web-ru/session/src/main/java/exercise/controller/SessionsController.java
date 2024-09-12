@@ -28,7 +28,7 @@ public class SessionsController {
         var encryptedPassword = Security.encrypt(ctx.formParam("password"));
         var user = UsersRepository.findByName(name).orElse(null);
         if (user != null && user.getName().equals(name) && user.getPassword().equals(encryptedPassword)) {
-            ctx.sessionAttribute("curretnUser", user.getName());
+            ctx.sessionAttribute("currentUser", user.getName());
             ctx.redirect(NamedRoutes.rootPath());
         } else {
             String error = "Wrong username or password";
