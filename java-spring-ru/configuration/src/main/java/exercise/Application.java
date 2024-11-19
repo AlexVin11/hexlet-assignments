@@ -34,6 +34,7 @@ public class Application {
                 .toList();
         List<String> result = admins.stream()
                 .map(User::getName)
+                .sorted()
                 .collect(Collectors.toUnmodifiableList());
         return result;
     }
