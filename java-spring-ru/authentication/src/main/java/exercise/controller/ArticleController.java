@@ -48,6 +48,7 @@ public class ArticleController {
         var user = userUtils.getCurrentUser();
         article.setAuthor(user);
         articleRepository.save(article);
+        var a = "str";
         return articleMapper.map(article);
     }
     // END
